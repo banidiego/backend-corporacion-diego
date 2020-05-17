@@ -1,0 +1,61 @@
+export class SRModel {
+  Id_SR: any;
+  Numero: Number;
+  Serie: String;
+  Responsable: String;
+  RUCResponsable: String;
+  FechaSolicitud: Date;
+  EntidadCooperante: String;
+  Cheque: String;
+  MonedaCheque: String;
+  ImporteCheque: Number;
+  TCCheque: Number;
+  Descripcion: String;
+  FechaRendicion: Date;
+  Observaciones: String;
+  Presupuesto: Number;
+  NRI: String;
+  MontoRI: Number;
+  NCC: String;
+  MontoCC: Number;
+  TotalGasto: Number;
+  Id_Verificacion: Number;
+  Tipo: Number;
+  Bloqueado: Boolean;
+  Rendido: Boolean;
+  Rubro: String;
+  Mes: String;
+  Ano: Number;
+  Codigo_Proyecto: String;
+
+  constructor() {
+    this.Id_SR = null;
+    this.Numero = 0;
+    this.Serie = '';
+    this.Responsable = '';
+    this.RUCResponsable = '';
+    this.FechaSolicitud = new Date();
+    this.EntidadCooperante = '';
+    this.Cheque = '';
+    this.MonedaCheque = '';
+    this.ImporteCheque = 0;
+    this.TCCheque = 0;
+    this.Descripcion = '';
+    this.FechaRendicion = new Date();
+    this.Observaciones = '';
+    this.Presupuesto = 0;
+    this.NRI = '';
+    this.MontoRI = 0;
+    this.NCC = '';
+    this.MontoCC = 0;
+    this.TotalGasto = 0;
+    this.Id_Verificacion = 0;
+    this.Tipo = 0;
+    this.Bloqueado = false;
+    this.Rendido = false;
+    this.Rubro = '';
+    this.Mes = '';
+    this.Ano = 0;
+    this.Codigo_Proyecto = '';
+  }
+}
