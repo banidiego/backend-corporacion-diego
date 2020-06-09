@@ -2,6 +2,9 @@
   "name": "backen-renacer-mysql",
   "version": "1.0.0",
   "description": "",
+  "engines": {
+    "node": "13.8.0"
+  },
   "main": "index.js",
   "scripts": {
     "build": "tsc -w",
