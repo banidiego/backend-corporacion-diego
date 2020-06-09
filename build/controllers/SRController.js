@@ -45,7 +45,7 @@ class SRController {
         return __awaiter(this, void 0, void 0, function* () {
             const ano = parseInt(req.params.Ano);
             const codigo_Proyecto = req.params.Codigo_Proyecto;
-            yield database_1.default.query('SELECT MAX(Numero) FROM SR WHERE Ano = ? and Codigo_Proyecto = ?', [ano, codigo_Proyecto], function (err, resp, fields) {
+            yield database_1.default.query('SELECT MAX(Numero) as Maximo FROM SR WHERE Ano = ? and Codigo_Proyecto = ?', [ano, codigo_Proyecto], function (err, resp, fields) {
                 if (err) {
                     return res.status(500).json({
                         ok: false,
@@ -93,14 +93,14 @@ class SRController {
             sr.Serie = body.Serie;
             sr.Responsable = body.Responsable;
             sr.RUCResponsable = body.RUCResponsable;
-            sr.FechaSolicitud = body.FechaSolicitud;
+            sr.FechaSolicitud = body.FechaSolicitudTexto;
             sr.EntidadCooperante = body.EntidadCooperante;
             sr.Cheque = body.Cheque;
             sr.MonedaCheque = body.MonedaCheque;
             sr.ImporteCheque = body.ImporteCheque;
             sr.TCCheque = body.TCCheque;
             sr.Descripcion = body.Descripcion;
-            sr.FechaRendicion = body.FechaRendicion;
+            sr.FechaRendicion = body.FechaRendicionTexto;
             sr.Observaciones = body.Observaciones;
             sr.Presupuesto = body.Presupuesto;
             sr.NRI = body.NRI;
@@ -124,9 +124,10 @@ class SRController {
                         errors: err,
                     });
                 }
+                sr.Id_SR = datos.insertId;
                 res.status(201).json({
                     ok: true,
-                    SR: datos,
+                    SR: sr,
                 });
             });
         });
@@ -144,14 +145,14 @@ class SRController {
             sr.Serie = body.Serie;
             sr.Responsable = body.Responsable;
             sr.RUCResponsable = body.RUCResponsable;
-            sr.FechaSolicitud = body.FechaSolicitud;
+            sr.FechaSolicitud = body.FechaSolicitudTexto;
             sr.EntidadCooperante = body.EntidadCooperante;
             sr.Cheque = body.Cheque;
             sr.MonedaCheque = body.MonedaCheque;
             sr.ImporteCheque = body.ImporteCheque;
             sr.TCCheque = body.TCCheque;
             sr.Descripcion = body.Descripcion;
-            sr.FechaRendicion = body.FechaRendicion;
+            sr.FechaRendicion = body.FechaRendicionTexto;
             sr.Observaciones = body.Observaciones;
             sr.Presupuesto = body.Presupuesto;
             sr.NRI = body.NRI;
@@ -177,7 +178,7 @@ class SRController {
                 }
                 res.status(201).json({
                     ok: true,
-                    SR: datos,
+                    SR: sr,
                 });
             });
         });

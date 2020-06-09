@@ -37,6 +37,27 @@ class DetalleSRController {
         });
     }
     // ==========================================
+    // Obtener Lista de DetalleSR por Id_DetalleSR
+    // ==========================================
+    ListaDetalleSRIdDetalleSR(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const id_DetalleSR = req.params.Id_DetalleSR;
+            yield database_1.default.query('SELECT * FROM DetalleSR WHERE Id_DetalleSR = ?', [id_DetalleSR], function (err, datos, fields) {
+                if (err) {
+                    return res.status(500).json({
+                        ok: false,
+                        mensaje: 'Error cargando los DetalleSR',
+                        errors: err,
+                    });
+                }
+                return res.status(200).json({
+                    ok: true,
+                    DetalleSR: datos,
+                });
+            });
+        });
+    }
+    // ==========================================
     // Crear DetalleSR
     // ==========================================
     GuardarDetalleSR(req, res) {
@@ -49,7 +70,7 @@ class DetalleSRController {
             detalleSR.Presupuesto = body.Presupuesto;
             detalleSR.Gasto = body.Gasto;
             detalleSR.Actividad = body.Actividad;
-            yield database_1.default.query('INSERT INTO Detalle set ?', detalleSR, (err, datos) => {
+            yield database_1.default.query('INSERT INTO DetalleSR set ?', detalleSR, (err, datos) => {
                 if (err) {
                     return res.status(400).json({
                         ok: false,

@@ -18,6 +18,7 @@ import TipoDocumentoIdentidadRoutes from './routes/TipoDocumentoIdentidadRoutes'
 import TipoDocumentoRoutes from './routes/TipoDocumentoRoutes';
 import TipoRegistroRoutes from './routes/TipoRegistroRoutes';
 import VariablesSesionRoutes from './routes/VariablesSesionRoutes';
+import LoginRoutes from './routes/LoginRoutes';
 
 class Server {
   public app: Application;
@@ -32,13 +33,14 @@ class Server {
     this.app.set('port', process.env.PORT || 3000);
 
     this.app.use(morgan('dev'));
-    this.app.use(cors());
+    this.app.use(cors({ origin: '*' }));
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: false }));
   }
 
   routes(): void {
     this.app.use('/', indexRoutes);
+    this.app.use('/Login', LoginRoutes);
     this.app.use('/Autorizacion', AutorizacionRoutes);
     this.app.use('/Auxiliar', AuxiliaresRoutes);
     // this.app.use('/ConfiguracionTablas', Configu);

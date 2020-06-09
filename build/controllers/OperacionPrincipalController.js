@@ -112,7 +112,7 @@ class OperacionPrincipalController {
             const ano = parseInt(req.params.Ano);
             const mes = req.params.Mes;
             const codigo_Proyecto = req.params.Codigo_Proyecto;
-            yield database_1.default.query('SELECT MAX(Numero) FROM OperacionPrincipal WHERE Ano = ? and Mes = ? and TipoOrigen = ? and Codigo_Proyecto = ?', [ano, mes, tipoOrigen, codigo_Proyecto], function (err, resp, fields) {
+            yield database_1.default.query('SELECT MAX(Numero) as Maximo FROM OperacionPrincipal WHERE Ano = ? and Mes = ? and TipoOrigen = ? and Codigo_Proyecto = ?', [ano, mes, tipoOrigen, codigo_Proyecto], function (err, resp, fields) {
                 if (err) {
                     return res.status(500).json({
                         ok: false,
@@ -226,7 +226,7 @@ class OperacionPrincipalController {
                     body.C96;
             operacionPrincipal.Id_OperacionPrincipal = null;
             operacionPrincipal.DescripcionOperacion = body.DescripcionOperacion;
-            operacionPrincipal.FechaOperacion = body.FechaOperacion;
+            operacionPrincipal.FechaOperacion = body.FechaOperacionTexto;
             operacionPrincipal.ResponsableGiro = body.ResponsableGiro;
             operacionPrincipal.CodigoOperacion = body.CodigoOperacion;
             operacionPrincipal.Numero = body.Numero;
@@ -295,6 +295,7 @@ class OperacionPrincipalController {
             operacionPrincipal.C65 = body.C65;
             operacionPrincipal.C66 = body.C66;
             operacionPrincipal.C67 = body.C67;
+            operacionPrincipal.C68 = body.C68;
             operacionPrincipal.C69 = body.C69;
             operacionPrincipal.C70 = body.C70;
             operacionPrincipal.C71 = body.C71;
@@ -335,9 +336,11 @@ class OperacionPrincipalController {
                         errors: err,
                     });
                 }
+                operacionPrincipal.Id_OperacionPrincipal =
+                    OperacionPrincipalGuardado.insertId;
                 res.status(201).json({
                     ok: true,
-                    OperacionPrincipal: OperacionPrincipalGuardado,
+                    OperacionPrincipal: operacionPrincipal,
                 });
             });
         });
@@ -442,7 +445,7 @@ class OperacionPrincipalController {
                     body.C96;
             operacionPrincipal.Id_OperacionPrincipal = id;
             operacionPrincipal.DescripcionOperacion = body.DescripcionOperacion;
-            operacionPrincipal.FechaOperacion = body.FechaOperacion;
+            operacionPrincipal.FechaOperacion = body.FechaOperacionTexto;
             operacionPrincipal.ResponsableGiro = body.ResponsableGiro;
             operacionPrincipal.CodigoOperacion = body.CodigoOperacion;
             operacionPrincipal.Numero = body.Numero;
@@ -553,7 +556,7 @@ class OperacionPrincipalController {
                 }
                 res.status(201).json({
                     ok: true,
-                    OperacionPrincipal: resp,
+                    OperacionPrincipal: operacionPrincipal,
                 });
             });
         });

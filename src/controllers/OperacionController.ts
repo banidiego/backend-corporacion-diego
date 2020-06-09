@@ -32,6 +32,36 @@ class OperacionController {
   }
 
   // ==========================================
+  // Obtener Lista de Operaciones por Id_DetalleSR TipoSR 2 - Para Tabla de Registro de Gasto
+  // ==========================================
+  public async ListaOperacionIdDetalleSRRegistroGasto(
+    req: Request,
+    res: Response
+  ) {
+    const id_DetalleSR = req.params.Id_DetalleSR;
+
+    await pool.query(
+      'SELECT * FROM Operacion WHERE Id_DetalleSR = ?  and TipoSR=2',
+      [id_DetalleSR],
+
+      function (err, datos, fields) {
+        if (err) {
+          return res.status(500).json({
+            ok: false,
+            mensaje: 'Error cargando las Operaciones',
+            errors: err,
+          });
+        }
+
+        return res.status(200).json({
+          ok: true,
+          operaciones: datos,
+        });
+      }
+    );
+  }
+
+  // ==========================================
   // Obtener Lista de Operaciones por Id_SR
   // ==========================================
   public async ListaId_SR(req: Request, res: Response) {
@@ -70,7 +100,7 @@ class OperacionController {
     operacion.TipoOrigen = body.TipoOrigen;
     operacion.CodigoOperacion = body.CodigoOperacion;
     operacion.DescripcionOperacion = body.DescripcionOperacion;
-    operacion.FechaOperacion = body.FechaOperacion;
+    operacion.FechaOperacion = body.FechaOperacionTexto;
     operacion.ResponsableGiro = body.ResponsableGiro;
     operacion.RUCResponsableGiro = body.RUCResponsableGiro;
     operacion.Solicitud = body.Solicitud;
@@ -86,7 +116,7 @@ class OperacionController {
     operacion.Codigo_TipoRegistro = body.Codigo_TipoRegistro;
     operacion.SerieComprobante = body.SerieComprobante;
     operacion.NumeroComprobante = body.NumeroComprobante;
-    operacion.FechaComprobante = body.FechaComprobante;
+    operacion.FechaComprobante = body.FechaComprobanteTexto;
     operacion.RUCAuxiliar = body.RUCAuxiliar;
     operacion.RazonSocial = body.RazonSocial;
     operacion.Codigo_TipoDocumentoIdentidad =
@@ -137,9 +167,10 @@ class OperacionController {
           });
         }
 
+        operacion.Id_Operacion = OperacionGuardado.insertId;
         res.status(201).json({
           ok: true,
-          Operacion: OperacionGuardado,
+          Operacion: operacion,
         });
       }
     );
@@ -159,7 +190,7 @@ class OperacionController {
     operacion.TipoOrigen = body.TipoOrigen;
     operacion.CodigoOperacion = body.CodigoOperacion;
     operacion.DescripcionOperacion = body.DescripcionOperacion;
-    operacion.FechaOperacion = body.FechaOperacion;
+    operacion.FechaOperacion = body.FechaOperacionTexto;
     operacion.ResponsableGiro = body.ResponsableGiro;
     operacion.RUCResponsableGiro = body.RUCResponsableGiro;
     operacion.Solicitud = body.Solicitud;
@@ -175,7 +206,7 @@ class OperacionController {
     operacion.Codigo_TipoRegistro = body.Codigo_TipoRegistro;
     operacion.SerieComprobante = body.SerieComprobante;
     operacion.NumeroComprobante = body.NumeroComprobante;
-    operacion.FechaComprobante = body.FechaComprobante;
+    operacion.FechaComprobante = body.FechaComprobanteTexto;
     operacion.RUCAuxiliar = body.RUCAuxiliar;
     operacion.RazonSocial = body.RazonSocial;
     operacion.Codigo_TipoDocumentoIdentidad =
@@ -230,7 +261,7 @@ class OperacionController {
         res.status(201).json({
           body: operacion,
           ok: true,
-          Operacion: OperacionGuardado,
+          Operacion: operacion,
         });
       }
     );

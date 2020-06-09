@@ -14,6 +14,10 @@ class DetalleSRRoutes {
       '/ListaDetalleSR/:Id_SR',
       DetalleSRController.ListaDetalleSRIdSR
     );
+    this.router.get(
+      '/DetalleSR/:Id_DetalleSR',
+      DetalleSRController.ListaDetalleSRIdDetalleSR
+    );
     this.router.post('/', DetalleSRController.GuardarDetalleSR);
     this.router.put('/:id', DetalleSRController.ActualizarDetalleSR);
     this.router.delete('/:id', DetalleSRController.EliminarDetalleSR);

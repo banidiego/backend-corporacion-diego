@@ -19,7 +19,7 @@ class MedioPagoController {
     // ==========================================
     Lista(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query('SELECT * FROM MedioPagos', function (err, datos, fields) {
+            yield database_1.default.query('SELECT * FROM MedioPago', function (err, datos, fields) {
                 if (err) {
                     return res.status(500).json({
                         ok: false,

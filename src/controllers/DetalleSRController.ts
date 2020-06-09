@@ -31,6 +31,32 @@ class DetalleSRController {
   }
 
   // ==========================================
+  // Obtener Lista de DetalleSR por Id_DetalleSR
+  // ==========================================
+  public async ListaDetalleSRIdDetalleSR(req: Request, res: Response) {
+    const id_DetalleSR = req.params.Id_DetalleSR;
+
+    await pool.query(
+      'SELECT * FROM DetalleSR WHERE Id_DetalleSR = ?',
+      [id_DetalleSR],
+      function (err, datos, fields) {
+        if (err) {
+          return res.status(500).json({
+            ok: false,
+            mensaje: 'Error cargando los DetalleSR',
+            errors: err,
+          });
+        }
+
+        return res.status(200).json({
+          ok: true,
+          DetalleSR: datos,
+        });
+      }
+    );
+  }
+
+  // ==========================================
   // Crear DetalleSR
   // ==========================================
   public async GuardarDetalleSR(req: Request, res: Response) {
@@ -44,7 +70,7 @@ class DetalleSRController {
     detalleSR.Gasto = body.Gasto;
     detalleSR.Actividad = body.Actividad;
 
-    await pool.query('INSERT INTO Detalle set ?', detalleSR, (err, datos) => {
+    await pool.query('INSERT INTO DetalleSR set ?', detalleSR, (err, datos) => {
       if (err) {
         return res.status(400).json({
           ok: false,

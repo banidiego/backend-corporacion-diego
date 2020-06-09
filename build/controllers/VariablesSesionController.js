@@ -61,7 +61,7 @@ class VariablesSesionController {
                 }
                 res.status(200).json({
                     ok: true,
-                    VariableSesion: variableSesionGuardado,
+                    VariableSesion: variableSesion,
                 });
             });
         });

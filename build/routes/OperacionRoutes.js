@@ -12,6 +12,7 @@ class OperacionRoutes {
     }
     config() {
         this.router.get('/Asiento/:Id_OperacionPrincipal', OperacionController_1.default.ListaOperacionPrincipal);
+        this.router.get('/RegistroGasto/:Id_DetalleSR', OperacionController_1.default.ListaOperacionIdDetalleSRRegistroGasto);
         this.router.get('/SR/:Id_SR', OperacionController_1.default.ListaId_SR);
         this.router.post('/', OperacionController_1.default.GuardarOperacion);
         this.router.put('/:id', OperacionController_1.default.ActualizarOperacion);

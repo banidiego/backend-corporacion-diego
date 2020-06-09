@@ -100,9 +100,11 @@ class PlanContableController {
           });
         }
 
+        planContable.Id_PlanContable = resp.insertId;
+
         res.status(201).json({
           ok: true,
-          PlanContable: resp,
+          PlanContable: planContable,
         });
       }
     );

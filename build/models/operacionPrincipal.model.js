@@ -5,7 +5,7 @@ class OperacionPrincipalModel {
     constructor() {
         this.Id_OperacionPrincipal = null;
         this.DescripcionOperacion = '';
-        this.FechaOperacion = new Date();
+        this.FechaOperacion = '1900-01-01';
         this.ResponsableGiro = '';
         this.CodigoOperacion = '';
         this.Numero = 0;
@@ -74,6 +74,7 @@ class OperacionPrincipalModel {
         this.C65 = 0;
         this.C66 = 0;
         this.C67 = 0;
+        this.C68 = 0;
         this.C69 = 0;
         this.C70 = 0;
         this.C71 = 0;

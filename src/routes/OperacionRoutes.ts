@@ -14,6 +14,10 @@ class OperacionRoutes {
       '/Asiento/:Id_OperacionPrincipal',
       OperacionController.ListaOperacionPrincipal
     );
+    this.router.get(
+      '/RegistroGasto/:Id_DetalleSR',
+      OperacionController.ListaOperacionIdDetalleSRRegistroGasto
+    );
     this.router.get('/SR/:Id_SR', OperacionController.ListaId_SR);
 
     this.router.post('/', OperacionController.GuardarOperacion);

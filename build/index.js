@@ -22,6 +22,7 @@ const TipoDocumentoIdentidadRoutes_1 = __importDefault(require("./routes/TipoDoc
 const TipoDocumentoRoutes_1 = __importDefault(require("./routes/TipoDocumentoRoutes"));
 const TipoRegistroRoutes_1 = __importDefault(require("./routes/TipoRegistroRoutes"));
 const VariablesSesionRoutes_1 = __importDefault(require("./routes/VariablesSesionRoutes"));
+const LoginRoutes_1 = __importDefault(require("./routes/LoginRoutes"));
 class Server {
     constructor() {
         this.app = express_1.default();
@@ -31,12 +32,13 @@ class Server {
     config() {
         this.app.set('port', process.env.PORT || 3000);
         this.app.use(morgan_1.default('dev'));
-        this.app.use(cors_1.default());
+        this.app.use(cors_1.default({ origin: '*' }));
         this.app.use(express_1.default.json());
         this.app.use(express_1.default.urlencoded({ extended: false }));
     }
     routes() {
         this.app.use('/', indexRoutes_1.default);
+        this.app.use('/Login', LoginRoutes_1.default);
         this.app.use('/Autorizacion', AutorizacionRoutes_1.default);
         this.app.use('/Auxiliar', AuxiliaresRoutes_1.default);
         // this.app.use('/ConfiguracionTablas', Configu);

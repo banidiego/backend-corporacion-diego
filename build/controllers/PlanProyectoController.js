@@ -68,72 +68,73 @@ class PlanProyectoController {
             var planproyecto = new planProyecto_model_1.PlanProyectoModel();
             var body = req.body;
             planproyecto.Id_PlanProyecto = null;
-            (planproyecto.Codigo_PlanProyecto = body.Codigo_PlanProyecto),
-                (planproyecto.Nombre_PlanProyecto = body.Nombre_PlanProyecto),
-                (planproyecto.EneroSolesP = body.EneroSolesP),
-                (planproyecto.FebreroSolesP = body.FebreroSolesP),
-                (planproyecto.MarzoSolesP = body.MarzoSolesP),
-                (planproyecto.AbrilSolesP = body.AbrilSolesP),
-                (planproyecto.MayoSolesP = body.MayoSolesP),
-                (planproyecto.JunioSolesP = body.JunioSolesP),
-                (planproyecto.JulioSolesP = body.JulioSolesP),
-                (planproyecto.AgostoSolesP = body.AgostoSolesP),
-                (planproyecto.SeptiembreSolesP = body.SeptiembreSolesP),
-                (planproyecto.OctubreSolesP = body.OctubreSolesP),
-                (planproyecto.NoviembreSolesP = body.NoviembreSolesP),
-                (planproyecto.DiciembreSolesP = body.DiciembreSolesP),
-                (planproyecto.EneroDolaresP = body.EneroDolaresP),
-                (planproyecto.FebreroDolaresP = body.FebreroDolaresP),
-                (planproyecto.MarzoDolaresP = body.MarzoDolaresP),
-                (planproyecto.AbrilDolaresP = body.AbrilDolaresP),
-                (planproyecto.MayoDolaresP = body.MayoDolaresP),
-                (planproyecto.JunioDolaresP = body.JunioDolaresP),
-                (planproyecto.JulioDolaresP = body.JulioDolaresP),
-                (planproyecto.AgostoDolaresP = body.AgostoDolaresP),
-                (planproyecto.SeptiembreDolaresP = body.SeptiembreDolaresP),
-                (planproyecto.OctubreDolaresP = body.OctubreDolaresP),
-                (planproyecto.NoviembreDolaresP = body.NoviembreDolaresP),
-                (planproyecto.DiciembreDolaresP = body.DiciembreDolaresP),
-                (planproyecto.EneroSolesG = body.EneroSolesG),
-                (planproyecto.FebreroSolesG = body.FebreroSolesG),
-                (planproyecto.MarzoSolesG = body.MarzoSolesG),
-                (planproyecto.AbrilSolesG = body.AbrilSolesG),
-                (planproyecto.MayoSolesG = body.MayoSolesG),
-                (planproyecto.JunioSolesG = body.JunioSolesG),
-                (planproyecto.JulioSolesG = body.JulioSolesG),
-                (planproyecto.AgostoSolesG = body.AgostoSolesG),
-                (planproyecto.SeptiembreSolesG = body.SeptiembreSolesG),
-                (planproyecto.OctubreSolesG = body.OctubreSolesG),
-                (planproyecto.NoviembreSolesG = body.NoviembreSolesG),
-                (planproyecto.DiciembreSolesG = body.DiciembreSolesG),
-                (planproyecto.EneroDolaresG = body.EneroDolaresG),
-                (planproyecto.FebreroDolaresG = body.FebreroDolaresG),
-                (planproyecto.MarzoDolaresG = body.MarzoDolaresG),
-                (planproyecto.AbrilDolaresG = body.AbrilDolaresG),
-                (planproyecto.MayoDolaresG = body.MayoDolaresG),
-                (planproyecto.JunioDolaresG = body.JunioDolaresG),
-                (planproyecto.JulioDolaresG = body.JulioDolaresG),
-                (planproyecto.AgostoDolaresG = body.AgostoDolaresG),
-                (planproyecto.SeptiembreDolaresG = body.SeptiembreDolaresG),
-                (planproyecto.OctubreDolaresG = body.OctubreDolaresG),
-                (planproyecto.NoviembreDolaresG = body.NoviembreDolaresG),
-                (planproyecto.DiciembreDolaresG = body.DiciembreDolaresG),
-                (planproyecto.Codigo_Proyecto = body.Codigo_Proyecto),
-                (planproyecto.Ano = body.Ano),
-                (planproyecto.Movimiento = body.Movimiento),
-                yield database_1.default.query('INSERT INTO PlanProyecto set ?', planproyecto, (err, PlanProyectoGuardado) => {
-                    if (err) {
-                        return res.status(400).json({
-                            ok: false,
-                            mensaje: 'Error al crear Auxiliar',
-                            errors: err,
-                        });
-                    }
-                    res.status(201).json({
-                        ok: true,
-                        PlanProyecto: PlanProyectoGuardado,
+            planproyecto.Codigo_PlanProyecto = body.Codigo_PlanProyecto;
+            planproyecto.Nombre_PlanProyecto = body.Nombre_PlanProyecto;
+            planproyecto.EneroSolesP = body.EneroSolesP;
+            planproyecto.FebreroSolesP = body.FebreroSolesP;
+            planproyecto.MarzoSolesP = body.MarzoSolesP;
+            planproyecto.AbrilSolesP = body.AbrilSolesP;
+            planproyecto.MayoSolesP = body.MayoSolesP;
+            planproyecto.JunioSolesP = body.JunioSolesP;
+            planproyecto.JulioSolesP = body.JulioSolesP;
+            planproyecto.AgostoSolesP = body.AgostoSolesP;
+            planproyecto.SeptiembreSolesP = body.SeptiembreSolesP;
+            planproyecto.OctubreSolesP = body.OctubreSolesP;
+            planproyecto.NoviembreSolesP = body.NoviembreSolesP;
+            planproyecto.DiciembreSolesP = body.DiciembreSolesP;
+            planproyecto.EneroDolaresP = body.EneroDolaresP;
+            planproyecto.FebreroDolaresP = body.FebreroDolaresP;
+            planproyecto.MarzoDolaresP = body.MarzoDolaresP;
+            planproyecto.AbrilDolaresP = body.AbrilDolaresP;
+            planproyecto.MayoDolaresP = body.MayoDolaresP;
+            planproyecto.JunioDolaresP = body.JunioDolaresP;
+            planproyecto.JulioDolaresP = body.JulioDolaresP;
+            planproyecto.AgostoDolaresP = body.AgostoDolaresP;
+            planproyecto.SeptiembreDolaresP = body.SeptiembreDolaresP;
+            planproyecto.OctubreDolaresP = body.OctubreDolaresP;
+            planproyecto.NoviembreDolaresP = body.NoviembreDolaresP;
+            planproyecto.DiciembreDolaresP = body.DiciembreDolaresP;
+            planproyecto.EneroSolesG = body.EneroSolesG;
+            planproyecto.FebreroSolesG = body.FebreroSolesG;
+            planproyecto.MarzoSolesG = body.MarzoSolesG;
+            planproyecto.AbrilSolesG = body.AbrilSolesG;
+            planproyecto.MayoSolesG = body.MayoSolesG;
+            planproyecto.JunioSolesG = body.JunioSolesG;
+            planproyecto.JulioSolesG = body.JulioSolesG;
+            planproyecto.AgostoSolesG = body.AgostoSolesG;
+            planproyecto.SeptiembreSolesG = body.SeptiembreSolesG;
+            planproyecto.OctubreSolesG = body.OctubreSolesG;
+            planproyecto.NoviembreSolesG = body.NoviembreSolesG;
+            planproyecto.DiciembreSolesG = body.DiciembreSolesG;
+            planproyecto.EneroDolaresG = body.EneroDolaresG;
+            planproyecto.FebreroDolaresG = body.FebreroDolaresG;
+            planproyecto.MarzoDolaresG = body.MarzoDolaresG;
+            planproyecto.AbrilDolaresG = body.AbrilDolaresG;
+            planproyecto.MayoDolaresG = body.MayoDolaresG;
+            planproyecto.JunioDolaresG = body.JunioDolaresG;
+            planproyecto.JulioDolaresG = body.JulioDolaresG;
+            planproyecto.AgostoDolaresG = body.AgostoDolaresG;
+            planproyecto.SeptiembreDolaresG = body.SeptiembreDolaresG;
+            planproyecto.OctubreDolaresG = body.OctubreDolaresG;
+            planproyecto.NoviembreDolaresG = body.NoviembreDolaresG;
+            planproyecto.DiciembreDolaresG = body.DiciembreDolaresG;
+            planproyecto.Codigo_Proyecto = body.Codigo_Proyecto;
+            planproyecto.Ano = body.Ano;
+            planproyecto.Movimiento = body.Movimiento;
+            yield database_1.default.query('INSERT INTO PlanProyecto set ?', planproyecto, (err, PlanProyectoGuardado) => {
+                if (err) {
+                    return res.status(400).json({
+                        ok: false,
+                        mensaje: 'Error al crear Auxiliar',
+                        errors: err,
                     });
+                }
+                planproyecto.Id_PlanProyecto = PlanProyectoGuardado.insertId;
+                res.status(201).json({
+                    ok: true,
+                    PlanProyecto: planproyecto,
                 });
+            });
         });
     }
 }

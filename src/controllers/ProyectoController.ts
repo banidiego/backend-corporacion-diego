@@ -54,9 +54,11 @@ class ProyectoController {
         });
       }
 
+      proyecto.Id_Proyecto = resp.insertId;
+
       res.status(201).json({
         ok: true,
-        proyecto: resp,
+        proyecto: proyecto,
       });
     });
   }
