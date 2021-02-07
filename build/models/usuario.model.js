@@ -4,13 +4,11 @@ exports.UsuarioModel = void 0;
 class UsuarioModel {
     constructor() {
         this.Id_Usuario = null;
-        this.nombre = '';
-        this.email = '';
-        this.password = '';
-        this.img = '';
-        this.role = '';
-        this.google = '';
-        this.Activado = false;
+        this.Usuario = '';
+        this.Password = '';
+        this.Nombres = '';
+        this.Email = '';
+        this.Imagen = '';
     }
 }
 exports.UsuarioModel = UsuarioModel;

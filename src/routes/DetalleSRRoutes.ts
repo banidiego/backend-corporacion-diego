@@ -14,6 +14,7 @@ class DetalleSRRoutes {
       '/ListaDetalleSR/:Id_SR',
       DetalleSRController.ListaDetalleSRIdSR
     );
+    this.router.get('/Totales/:Id_SR', DetalleSRController.SumaTotalGastoIdSR);
     this.router.get(
       '/DetalleSR/:Id_DetalleSR',
       DetalleSRController.ListaDetalleSRIdDetalleSR

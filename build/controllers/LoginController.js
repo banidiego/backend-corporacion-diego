@@ -54,6 +54,8 @@ class LoginController {
                         errors: err,
                     });
                 }
+                datos[0].nombre = googleUser.nombre;
+                datos[0].img = googleUser.img;
                 return res.status(200).json({
                     ok: true,
                     usuario: datos,

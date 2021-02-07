@@ -2,8 +2,10 @@ import express, { Application } from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
 
+import path from 'path';
+
 import indexRoutes from './routes/indexRoutes';
-import AuxiliaresRoutes from './routes/AuxiliaresRoutes';
+import AuxiliarRoutes from './routes/AuxiliarRoutes';
 import AutorizacionRoutes from './routes/AutorizacionRoutes';
 import DetalleSRRoutes from './routes/DetalleSRRoutes';
 import MedioPagoRoutes from './routes/MedioPagoRoutes';
@@ -15,10 +17,23 @@ import PlanProyectoRoutes from './routes/PlanProyectoRoutes';
 import ProyectoRoutes from './routes/ProyectoRoutes';
 import SRRoutes from './routes/SRRoutes';
 import TipoDocumentoIdentidadRoutes from './routes/TipoDocumentoIdentidadRoutes';
-import TipoDocumentoRoutes from './routes/TipoDocumentoRoutes';
-import TipoRegistroRoutes from './routes/TipoRegistroRoutes';
+import TipoComprobanteRoutes from './routes/TipoComprobanteRoutes';
 import VariablesSesionRoutes from './routes/VariablesSesionRoutes';
 import LoginRoutes from './routes/LoginRoutes';
+import CategoriaRoutes from './routes/CategoriaRoutes';
+import CostoFijoRoutes from './routes/CostoFijoRoutes';
+import EmpresaRoutes from './routes/EmpresaRoutes';
+import ManoObraRoutes from './routes/ManoObraRoutes';
+import MateriaPrimaRoutes from './routes/MateriaPrimaRoutes';
+import OtroGastoRoutes from './routes/OtroGastoRoutes';
+import CostoProductoRoutes from './routes/CostoProductoRoutes';
+import CostoProductoDetalleRoutes from './routes/CostoProductoDetalleRoutes';
+import AuthRoutes from './routes/AuthRoutes';
+import RegistroCompras81Routes from './routes/RegistroCompras81Routes';
+import TipoCompraRoutes from './routes/TipoCompraRoutes';
+import VentaSimpleRoutes from './routes/VentaSimpleRoutes';
+import ReportesGlobalesRoutes from './routes/ReportesGlobalesRoutes';
+import UsuarioRoutes from './routes/UsuarioRoutes';
 
 class Server {
   public app: Application;
@@ -41,26 +56,24 @@ class Server {
   routes(): void {
     this.app.use('/', indexRoutes);
     this.app.use('/Login', LoginRoutes);
-    this.app.use('/Autorizacion', AutorizacionRoutes);
-    this.app.use('/Auxiliar', AuxiliaresRoutes);
-    // this.app.use('/ConfiguracionTablas', Configu);
-    // this.app.use('/DatosOrganizacion', Datos);
-    // this.app.use('/DetalleAutorizacionDolares', Detall);
-    // this.app.use('/DetalleAutorizacionSoles', Deta);
-    this.app.use('/DetalleSR', DetalleSRRoutes);
-    this.app.use('/MedioPago', MedioPagoRoutes);
-    this.app.use('/OperacionPrincipal', OperacionPrincipalRoutes);
-    this.app.use('/Operacion', OperacionRoutes);
-    this.app.use('/Origen', OrigenRoutes);
-    this.app.use('/PlanContable', PlanContableRoutes);
-    this.app.use('/PlanProyecto', PlanProyectoRoutes);
-    this.app.use('/Proyecto', ProyectoRoutes);
-    this.app.use('/SR', SRRoutes);
+    this.app.use('/Auth', AuthRoutes);
+    this.app.use('/Categoria', CategoriaRoutes);
+    this.app.use('/CostoFijo', CostoFijoRoutes);
+    this.app.use('/Empresa', EmpresaRoutes);
+    this.app.use('/ManoObra', ManoObraRoutes);
+    this.app.use('/MateriaPrima', MateriaPrimaRoutes);
+    this.app.use('/OtroGasto', OtroGastoRoutes);
+    this.app.use('/CostoProducto', CostoProductoRoutes);
+    this.app.use('/CostoProductoDetalle', CostoProductoDetalleRoutes);
+    this.app.use('/RegistroCompra81', RegistroCompras81Routes);
+    this.app.use('/TipoComprobante', TipoComprobanteRoutes);
     this.app.use('/TipoDocumentoIdentidad', TipoDocumentoIdentidadRoutes);
-    this.app.use('/TipoDocumento', TipoDocumentoRoutes);
-    this.app.use('/TipoRegistro', TipoRegistroRoutes);
-    // this.app.use('/Usuario', Usuario);
-    this.app.use('/VariablesSesion', VariablesSesionRoutes);
+    this.app.use('/TipoCompra', TipoCompraRoutes);
+    this.app.use('/Auxiliar', AuxiliarRoutes);
+    this.app.use('/VentaSimple', VentaSimpleRoutes);
+    this.app.use('/ReportesGlobales', ReportesGlobalesRoutes);
+    this.app.use('/Usuario', UsuarioRoutes);
+    this.app.use('/uploads', express.static(path.resolve('uploads')));
   }
 
   start() {

@@ -12,6 +12,7 @@ class DetalleSRRoutes {
     }
     config() {
         this.router.get('/ListaDetalleSR/:Id_SR', DetalleSRController_1.default.ListaDetalleSRIdSR);
+        this.router.get('/Totales/:Id_SR', DetalleSRController_1.default.SumaTotalGastoIdSR);
         this.router.get('/DetalleSR/:Id_DetalleSR', DetalleSRController_1.default.ListaDetalleSRIdDetalleSR);
         this.router.post('/', DetalleSRController_1.default.GuardarDetalleSR);
         this.router.put('/:id', DetalleSRController_1.default.ActualizarDetalleSR);

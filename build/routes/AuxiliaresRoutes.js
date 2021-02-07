@@ -4,19 +4,19 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
-const AuxiliaresController_1 = __importDefault(require("../controllers/AuxiliaresController"));
+const AuxiliarController_1 = __importDefault(require("../controllers/AuxiliarController"));
 class AuxiliarRoutes {
     constructor() {
         this.router = express_1.Router();
         this.config();
     }
     config() {
-        this.router.get('/FiltrarRUC/:Ruc', AuxiliaresController_1.default.ListaAuxiliaresRUC);
-        this.router.get('/FiltrarRazonSocial/:RazonSocial', AuxiliaresController_1.default.ListaAuxiliaresRazonSocial);
-        this.router.get('/', AuxiliaresController_1.default.ListaAuxiliares);
-        this.router.post('/', AuxiliaresController_1.default.GuardarAuxiliar);
-        this.router.put('/:id', AuxiliaresController_1.default.ActualizarAuxiliar);
-        this.router.delete('/:id', AuxiliaresController_1.default.EliminarAuxiliar);
+        this.router.get('/FiltrarRUC/:Ruc', AuxiliarController_1.default.ListaAuxiliaresRUC);
+        this.router.get('/FiltrarRazonSocial/:RazonSocial', AuxiliarController_1.default.ListaAuxiliaresRazonSocial);
+        // this.router.get('/', AuxiliarController.ListaAuxiliares);
+        // this.router.post('/', AuxiliarController.GuardarAuxiliar);
+        // this.router.put('/:id', AuxiliarController.ActualizarAuxiliar);
+        // this.router.delete('/:id', AuxiliarController.EliminarAuxiliar);
     }
 }
 exports.default = new AuxiliarRoutes().router;

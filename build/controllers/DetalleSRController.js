@@ -37,6 +37,27 @@ class DetalleSRController {
         });
     }
     // ==========================================
+    // Suma de Total de Gasto por SR
+    // ==========================================
+    SumaTotalGastoIdSR(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const id_SR = req.params.Id_SR;
+            yield database_1.default.query('SELECT sum(Gasto)as TotalGasto, sum(Presupuesto) as TotalPresupuesto FROM DetalleSR WHERE Id_SR = ? ', [id_SR], function (err, resp, fields) {
+                if (err) {
+                    return res.status(500).json({
+                        ok: false,
+                        mensaje: 'Error cargando Datos de DetalleSR',
+                        errors: err,
+                    });
+                }
+                return res.status(200).json({
+                    ok: true,
+                    Totales: resp,
+                });
+            });
+        });
+    }
+    // ==========================================
     // Obtener Lista de DetalleSR por Id_DetalleSR
     // ==========================================
     ListaDetalleSRIdDetalleSR(req, res) {

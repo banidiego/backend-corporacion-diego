@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 
 import pool from '../database';
-import { TipoDocumentoIdentidadModel } from '../models/tipoDocumentoIdentidad.model';
+import { TipoDocumentoIdentidadModel } from '../models/TipoDocumentoIdentidad.model';
 
 class TipoDocumentoIdentidadController {
   // ==========================================

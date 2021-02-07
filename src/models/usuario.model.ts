@@ -1,21 +1,17 @@
 export class UsuarioModel {
   Id_Usuario: any;
-  nombre: String;
-  email: String;
-  password: String;
-  img: String;
-  role: String;
-  google: String;
-  Activado: Boolean;
+  Usuario: string;
+  Password: string;
+  Nombres: string;
+  Email: string;
+  Imagen: string;
 
   constructor() {
     this.Id_Usuario = null;
-    this.nombre = '';
-    this.email = '';
-    this.password = '';
-    this.img = '';
-    this.role = '';
-    this.google = '';
-    this.Activado = false;
+    this.Usuario = '';
+    this.Password = '';
+    this.Nombres = '';
+    this.Email = '';
+    this.Imagen = '';
   }
 }

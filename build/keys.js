@@ -6,7 +6,8 @@ exports.default = {
         host: '50.87.253.191',
         user: 'sistemo0_bani',
         password: 'yapeyyurijcuna',
-        database: 'sistemo0_bd_administracion-renacer',
+        database: 'sistemo0_bd_diego',
         port: 3306,
+        multipleStatements: true,
     },
 };
