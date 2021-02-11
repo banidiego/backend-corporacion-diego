@@ -149,7 +149,7 @@ class VentaSimpleController {
     const id_Empresa = req.params.Id_Empresa;
     const bannys = req.params.Bannys;
     await pool.query(
-      'Select  CONCAT(Date_Format(Fecha,"%d"),"-",left(Mes,3)) as Fecha, sum(Monto) as Total from VentaSimple where Bannys=? and Id_Empresa=?  group by Fecha  Order by Fecha LIMIT 12',
+      'Select  CONCAT(Date_Format(Fecha,"%d"),"-",left(Mes,3)) as Fecha, sum(Monto) as Total,Fecha as FechaNormal from VentaSimple where Bannys=? and Id_Empresa=?  group by Fecha  Order by Ano,FechaNormal LIMIT 12',
       [bannys, id_Empresa],
 
       function (err, resp, fields) {
